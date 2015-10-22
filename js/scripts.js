@@ -14,13 +14,13 @@ document.addEventListener("DOMContentLoaded", function init()	{
 //    document.getElementById("errormessage").appendChild(paragraph);
 //  }  
 	
-	// Reveals ohter adress field
+	// Hides/Shows OTHER address field
 	document.getElementById("addressOther").setAttribute("class", "hidden");	
 	addressType.onchange = function(sel) {
-	 	if (sel.target.value == "Other") {
-		  document.getElementById("addressOther").removeAttribute("class");
-	 	} else {
-		  document.getElementById("addressOther").setAttribute("class", "hidden");
+		if (sel.target.value == "Other") {
+			document.getElementById("addressOther").removeAttribute("class");
+		} else {
+			document.getElementById("addressOther").setAttribute("class", "hidden");
 		}
 	}
 	
@@ -87,186 +87,176 @@ document.addEventListener("DOMContentLoaded", function init()	{
 //    } 
 //  }
 	
-// Form validation	
-giantPizzaButton.addEventListener("click", function() {
-  var name = document.pizzaOrderForm.username.value;
-  var namepattern = new RegExp(/\d/g).test(name);
-  var state = document.pizzaOrderForm.state.value;
-  var statepattern = new RegExp(/([Aa][LKSZRAEPlkszraep]|[Cc][AOTaot]|[Dd][ECec]|[Ff][LMlm]|[Gg][AUau]|[Hh][Ii]|[Ii][ADLNadln]|[Kk][SYsy]|[Ll][Aa]|[Mm][ADEHINOPSTadehinopst]|[Nn][CDEHJMVYcdehjmvy]|[Oo][HKRhkr]|[Pp][ARWarw]|[Rr][Ii]|[Ss][CDcd]|[Tt][NXnx]|[Uu][Tt]|[Vv][AITait]|[Ww][AIVYaivy])/).test(state);
-  var zipcode = document.pizzaOrderForm.zip.value;
-  var zippattern = new RegExp(/\d{5}(?:[-\s]\d{4})?/).test(zipcode);
-  var phonenum = document.pizzaOrderForm.phone.value;
-  var phonepattern = new RegExp(/1?(?:[.\s-]?[2-9]\d{2}[.\s-]?|\s?\([2-9]\d{2}\)\s?)(?:[1-9]\d{2}[.\s-]?\d{4}\s?(?:\s?([xX]|[eE][xX]|[eE][xX]\.|[eE][xX][tT]|[eE][xX][tT]\.)\s?\d{3,4})?|[a-zA-Z]{7})/).test(phonenum);
-  var emailaddress = document.pizzaOrderForm.email.value;
-  var emailpattern = new RegExp(/^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}$/).test(emailaddress);
-	if (document.pizzaOrderForm.username.value === "" || namepattern === true) {
-			document.pizzaOrderForm.username.focus();
-			window.alert("Please fix your name");
-  }
-	else if (document.pizzaOrderForm.addressType.value === "") {
-			document.pizzaOrderForm.addresstype.focus();
-			window.alert("Please select your address type");
-	} 
-	else if (document.pizzaOrderForm.street.value === "") {
-			document.pizzaOrderForm.street.focus();
-			window.alert("Please enter your street name");
-	}
-	else if (document.pizzaOrderForm.city.value === "") {
-			document.pizzaOrderForm.city.focus();
-			window.alert("Please enter your city name");
-	}
-	else if (document.pizzaOrderForm.state.value === "" || statepattern === false)  {
-			document.pizzaOrderForm.state.focus();
-			window.alert("Pleaae enter your 2-digit statecode");
-	}
-	else if (document.pizzaOrderForm.zip.value === "" || zippattern === false) {
-			document.pizzaOrderForm.zip.focus();
-			window.alert("Enter a valid zipcode");
-	}
-	else if (document.pizzaOrderForm.phone.value === "" || phonepattern === false) {
-			document.pizzaOrderForm.phone.focus();
-			window.alert("Enter a valid phone number");
-	}
-	else if (document.pizzaOrderForm.email.value === "" || emailpattern === false) {
-			document.pizzaOrderForm.email.focus();
-			window.alert("Enter a valid email address");
-	}
-	 else if (document.pizzaOrderForm.dough.value === "") {
-			window.alert("Please select your dough!");
-	}
-	else {
-				var buttonChoice = window.confirm("Are you sure that you're done?");
-				if (buttonChoice === true) {
-					document.getElementById("billingbox").setAttribute("class", "");
-					document.getElementById("giantPizzaButton").disabled = true;
+	// Form validation	
+	giantPizzaButton.addEventListener("click", function() {
+		var name = document.pizzaOrderForm.username.value;
+		var namepattern = new RegExp(/\d/g).test(name);
+		var state = document.pizzaOrderForm.state.value;
+		var statepattern = new RegExp(/([Aa][LKSZRAEPlkszraep]|[Cc][AOTaot]|[Dd][ECec]|[Ff][LMlm]|[Gg][AUau]|[Hh][Ii]|[Ii][ADLNadln]|[Kk][SYsy]|[Ll][Aa]|[Mm][ADEHINOPSTadehinopst]|[Nn][CDEHJMVYcdehjmvy]|[Oo][HKRhkr]|[Pp][ARWarw]|[Rr][Ii]|[Ss][CDcd]|[Tt][NXnx]|[Uu][Tt]|[Vv][AITait]|[Ww][AIVYaivy])/).test(state);
+		var zipcode = document.pizzaOrderForm.zip.value;
+		var zippattern = new RegExp(/\d{5}(?:[-\s]\d{4})?/).test(zipcode);
+		var phonenum = document.pizzaOrderForm.phone.value;
+		var phonepattern = new RegExp(/1?(?:[.\s-]?[2-9]\d{2}[.\s-]?|\s?\([2-9]\d{2}\)\s?)(?:[1-9]\d{2}[.\s-]?\d{4}\s?(?:\s?([xX]|[eE][xX]|[eE][xX]\.|[eE][xX][tT]|[eE][xX][tT]\.)\s?\d{3,4})?|[a-zA-Z]{7})/).test(phonenum);
+		var emailaddress = document.pizzaOrderForm.email.value;
+		var emailpattern = new RegExp(/^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}$/).test(emailaddress);
+		if (document.pizzaOrderForm.username.value === "" || namepattern === true) {
+				document.pizzaOrderForm.username.focus();
+				window.alert("Please fix your name");
+		}
+		else if (document.pizzaOrderForm.addressType.value === "") {
+				document.pizzaOrderForm.addresstype.focus();
+				window.alert("Please select your address type");
+		} 
+		else if (document.pizzaOrderForm.street.value === "") {
+				document.pizzaOrderForm.street.focus();
+				window.alert("Please enter your street name");
+		}
+		else if (document.pizzaOrderForm.city.value === "") {
+				document.pizzaOrderForm.city.focus();
+				window.alert("Please enter your city name");
+		}
+		else if (document.pizzaOrderForm.state.value === "" || statepattern === false)  {
+				document.pizzaOrderForm.state.focus();
+				window.alert("Pleaae enter your 2-digit statecode");
+		}
+		else if (document.pizzaOrderForm.zip.value === "" || zippattern === false) {
+				document.pizzaOrderForm.zip.focus();
+				window.alert("Enter a valid zipcode");
+		}
+		else if (document.pizzaOrderForm.phone.value === "" || phonepattern === false) {
+				document.pizzaOrderForm.phone.focus();
+				window.alert("Enter a valid phone number");
+		}
+		else if (document.pizzaOrderForm.email.value === "" || emailpattern === false) {
+				document.pizzaOrderForm.email.focus();
+				window.alert("Enter a valid email address");
+		}
+		 else if (document.pizzaOrderForm.dough.value === "") {
+				window.alert("Please select your dough!");
+		}
+		else {
+					var buttonChoice = window.confirm("Are you sure that you're done?");
+					if (buttonChoice === true) {
+						document.getElementById("billingbox").setAttribute("class", "");
+						document.getElementById("giantPizzaButton").disabled = true;
+					}
 				}
-			}
-}, false);	
+	}, false);	
 
-//logic to force customer to select dough before cheese, etc.	
-document.getElementById("selectSize").disabled = true;
-document.getElementById("cheeseOptions").disabled = true;
-document.getElementById("sauceOptions").disabled = true;
-document.getElementById("selectToppings").setAttribute("class", "hidden");
+	//logic to force customer to select dough before cheese, etc.	
+	document.getElementById("selectSize").disabled = true;
+	document.getElementById("cheeseOptions").disabled = true;
+	document.getElementById("sauceOptions").disabled = true;
+	document.getElementById("selectToppings").setAttribute("class", "hidden");
+	
 	doughSelect.onchange = function(sel) {
-	 	if (sel.target.value !== "") {
-		  document.getElementById("selectSize").disabled = false;
+		if(sel.target.value !== "") {
+			document.getElementById("selectSize").disabled = false;
 			document.getElementById("cheeseOptions").disabled = false;
 			document.getElementById("sauceOptions").disabled = false;
 			document.getElementById("selectToppings").removeAttribute("class", "hidden");
-		}
-	}
-		
-doughSelect.addEventListener("click", function() {
-	
-	
-	//Gets values from radio button input
-	var radios = document.getElementsByName("dough");
-	var dough;
-	for (var i = 0; i < radios.length; i++) {
-    if (radios[i].type === "radio" && radios[i].checked) {
-    	dough = radios[i].value;
-    }
-	}
-	
-	var pizzaSizes = {
-	handTossed: {
-		Small: 9.99,
-		Medium: 12.99,
-		Large: 14.99
-		},
-	thinCrust: {
-		Medium: 11.99,
-		Large: 13.99	
-		},
-	newYorkStyle: {
-		Large: 16.99,
-		ExtraLarge: 19.99
-		},
-	glutenFree: {
-		Small: 10.99
-		}
-	};
-	
-	var sizeDrop;
-	if (dough === "handTossed") {
-		sizeDrop = pizzaSizes.handTossed;
-	} else if (dough === "thinCrust") {
-		sizeDrop = pizzaSizes.thinCrust;
-	} else if (dough === "newYorkStyle") {
-		sizeDrop = pizzaSizes.newYorkStyle; 
-	} else {
-		sizeDrop = pizzaSizes.glutenFree;
-	}
-
-	if (dough !== "") {
-		var mySelect = document.getElementById("selectSize");
-		while(mySelect.firstChild) {
-			mySelect.removeChild(mySelect.firstChild);
+			}
 		}
 		
-		for (i in sizeDrop) {
-			var textDrop;
-			var dropValue = [];
-			textDrop = i + " " + sizeDrop[i];
-			dropValue += sizeDrop[i];	
-			var newOption = document.createElement("option");
-			var newContent = document.createTextNode(textDrop);
-			newOption.setAttribute("value", dropValue);
-			newOption.appendChild(newContent);
-			document.getElementById("selectSize").appendChild(newOption);
+	doughSelect.addEventListener("click", function() {
+	
+		//Gets values from radio button input
+		var radios = document.getElementsByName("dough");
+		var dough;
+		for (var i = 0; i < radios.length; i++) {
+			if (radios[i].type === "radio" && radios[i].checked) {
+				dough = radios[i].value;
+			}
 		}
-	}
 
-//		if (document.getElementById("selectSize") === undefined) {
-//			document.pizzaOrderForm.doughselect.focus();
-//			window.alert("Please select your dough first!"); }
-	
-}, false);
-	
+		var pizzaSizes = {
+		handTossed: {
+			Small: 9.99,
+			Medium: 12.99,
+			Large: 14.99
+			},
+		thinCrust: {
+			Medium: 11.99,
+			Large: 13.99	
+			},
+		newYorkStyle: {
+			Large: 16.99,
+			ExtraLarge: 19.99
+			},
+		glutenFree: {
+			Small: 10.99
+			}
+		};
 
-	// Shopping cart total
-	buildbox.addEventListener("change", function(val) {
-		
-		var sizeInput = document.getElementById("selectSize").value;
-		document.getElementById("amount").value = sizeInput; 
+		var sizeDrop;
+		if(dough === "handTossed") {
+			sizeDrop = pizzaSizes.handTossed;
+			} else if (dough === "thinCrust") {
+			sizeDrop = pizzaSizes.thinCrust;
+			} else if (dough === "newYorkStyle") {
+			sizeDrop = pizzaSizes.newYorkStyle; 
+			} else {
+			sizeDrop = pizzaSizes.glutenFree;
+			}
 
-		var cheeseInput = document.getElementById("cheeseOptions").value;
-		var total1 = eval(sizeInput + "+" + cheeseInput);
-		document.getElementById("amount").value = total1;
+		if(dough !== "") {
+			var mySelect = document.getElementById("selectSize");
+			while(mySelect.firstChild) {
+				mySelect.removeChild(mySelect.firstChild);
+				}
 
-		var sauceInput = document.getElementById("sauceOptions").value;
-		var total2 = eval(sizeInput + "+" + cheeseInput + "+" + sauceInput);
-		document.getElementById("amount").value = total2;
-		
-//		var toppings = document.getElementById("selectToppings");
-//		CL(toppings);
-		
-//			var topbox = document.getElementsByName("topping").value;
-//			var top;
-//			for (var i = 0; i < topping.lenght; i++) {
-//				if (topbox[i].checked === true) {
-//					CL("checked");
-//				}
-//			}
-//		
-			var checkedValue = null; 
-			var inputElements = document.getElementsByName("topping");
-			for (var i = 0; inputElements[i]; i++){
-      	if (inputElements[i].checked && inputElements[i].type === "checkbox") {
-//           checkedValue = inputElements[i].value;
-						CL(inputElements[i].checked);
+			for(i in sizeDrop) {
+				var textDrop;
+				var dropValue = [];
+				textDrop = i + " " + sizeDrop[i];
+				dropValue += sizeDrop[i];	
+				var newOption = document.createElement("option");
+				var newContent = document.createTextNode(textDrop);
+				newOption.setAttribute("value", dropValue);
+				newOption.appendChild(newContent);
+				document.getElementById("selectSize").appendChild(newOption);
 				}
 			}
-//			CL(checkedValue);
-
-}, false);	
+	},false);
 	
+
+	// BUILDBOX - pizza add to cart feature
+	buildbox.addEventListener("change", function(val) {
 		
-	// Billing information from shipping
+		selectToppings.addEventListener("change", function(event) {
+			event.stopPropagation();
+		});
+		
+		var pizzaSize 	= document.getElementById("selectSize").value;
+		var cheeseInput = document.getElementById("cheeseOptions").value;
+		var sauceInput 	= document.getElementById("sauceOptions").value;
+		
+		var total2 = eval(pizzaSize + "+" + cheeseInput + "+" + sauceInput).toFixed(2);
+		document.getElementById("amount").value = total2;		
+	},false);			
+				
+	// Pizza toppings cart logic
+	selectToppings.addEventListener("change", function(val){
+		
+		var checkBoxChecked = val.target.checked;
+		
+		if(checkBoxChecked === true) {
+			document.getElementById("amount").value = document.getElementById("amount").value += " + 0.99";
+			}
+		if(checkBoxChecked === false) {
+			document.getElementById("amount").value = document.getElementById("amount").value += " - 0.99";
+			}
+
+		var calc = eval(document.getElementById("amount").value).toFixed(2);
+		document.getElementById("amount").value = calc;		
+	},false);	
+		
+	// BILLING - pull billing information from shipping
 	billing.addEventListener("click", function() {
+		
 		var check = document.getElementById("billing").checked;
-		if (check === true && document.pizzaOrderForm.username.value !== "") {
+		
+		if(check === true && document.pizzaOrderForm.username.value !== "") {
 			document.pizzaOrderForm.billingname.value = document.pizzaOrderForm.username.value;	
 			document.pizzaOrderForm.billingstreet.value = document.pizzaOrderForm.street.value; 
 			document.pizzaOrderForm.billingapt.value = document.pizzaOrderForm.apt.value;
@@ -281,10 +271,9 @@ doughSelect.addEventListener("click", function() {
 			document.pizzaOrderForm.billingstate.value = "";
 			document.pizzaOrderForm.billingzip.value = "";
 		}
-	}, false);
+	},false);
 	
-	
-	
+	// CC Stuff
 	// START CC helper function to insert error message
 	function fixMe(text, elementid) {  
     var paragraph = document.createElement("p");
@@ -303,19 +292,16 @@ doughSelect.addEventListener("click", function() {
 		
 	// END CC helper functions
 	
-	// CC LOGIC STUFF
+	//CC validation logic
 	cc.addEventListener("change", function() {
 		var cardNumber;
 		var cardNumberFirstDigit; 
 		cardNumber = document.pizzaOrderForm.card.value;
 		cardNumberFirstDigit = cardNumber.split('')[0];
 		
-		//Credit card validation logic
-		
 		//Validates CC number 
 		//error message appears if user enters anything other than numeric,
-		//number of digits is wrong
-		
+		//or number of digits is wrong		
 		var child = document.getElementById("ccFixText").firstChild;
     var numberPattern = new RegExp(/(([1-9]{1}\d{0,2},(\d{3},)*\d{3})|([1-9]{1}\d{0,}))/).test(cardNumber);
 		var enoughNumberPattern = new RegExp(/[3|4|5|6]([0-9]{15}$|[0-9]{12}$|[0-9]{13}$|[0-9]{14}$)/).test(cardNumber);
@@ -325,21 +311,21 @@ doughSelect.addEventListener("click", function() {
 		if (numberPattern === true || enoughNumberPattern === true) {	
 			if (child !== null) { child.parentNode.removeChild(child) }
 		}
-		// checks luhn algorythm on CC within listening event.
-
-		//Luhn algorythm
+		
+		// Checks luhn algorythm on CC within listening event.
+		// Luhn algorythm
 		var luhn;
 		var doubleNum = [];
 		var notDoubledNum = [];
 
 		luhn = cardNumber.split('').reverse();
 		var int;
-		for (int = 1; int < luhn.length; int += 2) {
+		for(int = 1; int < luhn.length; int += 2) {
 			doubleNum += luhn[int] * 2;
 		}
-		luhn 
+		// luhn 
 		var ct;
-		for (ct = 0; ct < luhn.length; ct += 2) {
+		for(ct = 0; ct < luhn.length; ct += 2) {
 			notDoubledNum += luhn[ct];
 		}
 
@@ -349,11 +335,11 @@ doughSelect.addEventListener("click", function() {
 		y = eval(y);
 		var total = eval(x + y);
 		if (total % 10 !== 0) {
-			fixMe("The card is invalid according to our super algorythm", "ccFixText");
+			fixMe("The card is invalid according to our Super algorythm", "ccFixText");
 		}
 		
 		// Display CC type image (next to expiration) based on the entered card number prefix 
-		if ((numberPattern === true) && (enoughNumberPattern === true) && (total % 10 === 0)) {
+		if((numberPattern === true) && (enoughNumberPattern === true) && (total % 10 === 0)) {
 			cardNumberFirstDigit
 			switch (cardNumberFirstDigit) {
 				case "4":
@@ -372,38 +358,49 @@ doughSelect.addEventListener("click", function() {
 					setCCImage('../img/pizzacc.png');
 			}	
 		}			
-	}, false);
+	},false);
 	
-	// CVC Code validation
+	// CVC validation
 	cvc.addEventListener("change", function() {
+		
 		var cvcNumber;
 		cvcNumber = document.pizzaOrderForm.cvccode.value;
 	
 		var child = document.getElementById("cvcFixText").firstChild;
     var cvcPattern = new RegExp(/^[0-9]{3,4}$/).test(cvcNumber);
-    if (cvcPattern !== true || cvcNumber === "") { 
+    if(cvcPattern !== true || cvcNumber === "") { 
 			fixMe("Enter the 3 or 4 digits from your card.", "cvcFixText"); 
 		}	
-		if (cvcPattern === true) {	
-			if (child !== null) { child.parentNode.removeChild(child) }
+		if(cvcPattern === true) {	
+			if(child !== null) {
+				child.parentNode.removeChild(child)
+			}
 		}		
-	}, false);
+	},false);
 	
+	// CC Expiration date NEEDS WORK
+	expiration.addEventListener("change", function() {
+
+
+		var month = [];
+		var year = [];
+		month = (document.getElementById("month").value);		
+		year = (document.getElementById("year").value);
+		var checkDate = month + year;
+		checkDate = checkDate.split('');
+		month = checkDate[0]
 		
-		month.addEventListener("change", function() {
-			var month = document.pizzaOrderForm.selectmonth.value;
-			return [month];
-		}, false);	
-	
-		year.addEventListener("change", function() {
-			var year = document.pizzaOrderForm.selectyear.value;
-			return [year];
-		}, false);
-	
+		CL(checkDate);
+//		if(checkDate < new date()) {
+//			window.alert("hey date!");
+//		}
+		
+ },false);											 
+
 		
 	// Sets copyright in footer	
 	document.querySelector("footer").innerHTML = "&copy; Impasto Grasso " + new Date().getFullYear();
 	
-}, false);
+},false);
 
 

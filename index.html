@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Assignment 6 | Pizza Order Form</title>
+	<title>Pizza Order Form</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/stylesheet.css" rel="stylesheet">
 	<link href="css/css.css" rel="stylesheet">
@@ -71,65 +71,66 @@
 	<hr>
 </fieldset>
 <br>  
-<fieldset id="buildbox">
-<!-- Set class to hidden for cart -->
-	<aside id="cart">
-		<h4>Order total</h4>
-		<em>$</em>&nbsp;<input id="amount" type="text" value="0">
-	</aside>
-  <legend><h5>Build your pizza</h5></legend>
-  <aside></aside>
-  
-	<div id="doughSelect">
-  	<label style="height:100px;">Dough options:</label>
-  			<input type="radio" id="hand" name="dough" value="handTossed"> Hand Tossed<br>
-  			<input type="radio" id="thin" name="dough" value="thinCrust"> Thin Cust<br>
-  			<input type="radio" id="ny" name="dough" value="newYorkStyle"> New York Style<br>
-  			<input type="radio" id="free" name="dough" value="glutenFree"> Gluten Free
-  			<hr>
-  </div>
-  <label>Pizza size:</label>
-  <select id="selectSize" name="size">
-    <option value="selectDoughFirst">Select dough first</option>
-  </select>
-  <hr>
-  <label>Cheese options:</label>
-  <select id="cheeseOptions" name="cheese">
-    <option value="0">Light: no charge</option>
-    <option value="0" selected>Normal: no charge</option>
-    <option value="2.99">Extra: +$2.99</option>
-    <option value="3.99">Double: +$3.99</option>
-  </select>
-  <hr>
-  <label>Sauce options:</label>
-  <select id="sauceOptions" name="sauce">
-    <option value="0" selected>Regular tomato: no charge</option>
-    <option value=".99">Hearty tomato: +$.99</option>
-    <option value="1.99">BBQ sauce: +$1.99</option>
-  </select>
-  <hr>
-	<div id="selectToppings">
-		<section class="col-xs-4 col-xs-offset-1">
-			<label>Topping options:</label>
-			<input type="checkbox" name="topping" id="pepperoni" value="0.99"> pepperoni<br>
-			<input type="checkbox" name="topping" id="sausage" value="0.99"> sausage<br>
-			<input type="checkbox" name="topping" id="ham" value="0.99"> ham<br>
-			<input type="checkbox" name="topping" id="bacon" value=".99"> bacon<br>
-			<input type="checkbox" name="topping" id="salami" value=".99"> salami<br>
-			<input type="checkbox" name="topping" id="peppers" value=".99"> peppers<br>
-			<input type="checkbox" name="topping" id="olives" value=".99"> olives<br>
-			<input type="checkbox" name="topping" id="jalapenos" value=".99"> jalapenos<br>
-			<input type="checkbox" name="topping" id="mushrooms" value=".99"> mushrooms<br>
-			<input type="checkbox" name="topping" id="pineapple" value=".99"> pineapple<br>
-			<input type="checkbox" name="topping" id="onion" value=".99"> onion<br>	
-		</section>
-	</div>
+<fieldset>
+	<div id="buildbox">
+	<!-- Set class to hidden for cart -->
+		<aside id="cart">
+			<h4>Order total</h4>
+			<em>$</em>&nbsp;<input id="amount" name="adder" type="text" value="">
+		</aside>
+		<legend><h5>Build your pizza</h5></legend>
+		<aside></aside>
+		<div id="doughSelect">
+			<label style="height:100px;">Dough options:</label>
+				<input type="radio" id="hand" name="dough" value="handTossed"> Hand Tossed<br>
+				<input type="radio" id="thin" name="dough" value="thinCrust"> Thin Cust<br>
+				<input type="radio" id="ny" name="dough" value="newYorkStyle"> New York Style<br>
+				<input type="radio" id="free" name="dough" value="glutenFree"> Gluten Free
+				<hr>
+		</div>
+		<label>Pizza size:</label>
+		<select id="selectSize" name="size">
+			<option value="selectDoughFirst">Select dough first</option>
+		</select>
+		<hr>
+		<label>Cheese options:</label>
+		<select id="cheeseOptions" name="cheese">
+			<option value="0">Light: no charge</option>
+			<option value="0" selected>Normal: no charge</option>
+			<option value="2.99">Extra: +$2.99</option>
+			<option value="3.99">Double: +$3.99</option>
+		</select>
+		<hr>
+		<label>Sauce options:</label>
+		<select id="sauceOptions" name="sauce">
+			<option value="0" selected>Regular tomato: no charge</option>
+			<option value=".99">Hearty tomato: +$.99</option>
+			<option value="1.99">BBQ sauce: +$1.99</option>
+		</select>
+		<hr>
+		<div id="selectToppings">
+			<section class="col-xs-4 col-xs-offset-1">
+				<label>Topping options:</label>
+				<input type="checkbox" name="topping" id="pepperoni" value="0.99"> pepperoni<br>
+				<input type="checkbox" name="topping" id="sausage" value="0.99"> sausage<br>
+				<input type="checkbox" name="topping" id="ham" value="0.99"> ham<br>
+				<input type="checkbox" name="topping" id="bacon" value="0.99"> bacon<br>
+				<input type="checkbox" name="topping" id="salami" value="0.99"> salami<br>
+				<input type="checkbox" name="topping" id="peppers" value="0.99"> peppers<br>
+				<input type="checkbox" name="topping" id="olives" value="0.99"> olives<br>
+				<input type="checkbox" name="topping" id="jalapenos" value="0.99"> jalapenos<br>
+				<input type="checkbox" name="topping" id="mushrooms" value="0.99"> mushrooms<br>
+				<input type="checkbox" name="topping" id="pineapple" value="0.99"> pineapple<br>
+				<input type="checkbox" name="topping" id="onion" value="0.99"> onion<br>	
+			</section>
+		</div>
+</div>	
 </fieldset>
 	<hr>
 	<br><br>	
 	<input class="btn btn-lg btn-block" type="button" id="giantPizzaButton" value="Finished Building Pizza">
 	<br><br>
-<fieldset id="billingbox" class="hidden">
+<fieldset id="billingbox" class="">
 	<legend><h5>>Billing Information</h5></legend>
 	<input type="checkbox" name="billingaddress" id="billing" value="true"> Same as delivery address<br>
 	<hr>
@@ -156,37 +157,38 @@
 	<label>CVC code:</label><input type="text" name="cvccode">
 	<hr>
 	</div>
-	<div id="expiration">
-	<label>Expiration date:</label>
-	<select name="selectmonth" class="col-xs-2" id="month">
-		<option value="1">01-Jan</option>
-		<option value="2">02-Feb</option>
-		<option value="3">03-Mar</option>
-		<option value="4">04-Apr</option>
-		<option value="5">05-May</option>
-		<option value="5">06-Jun</option>
-		<option value="7">07-Jul</option>
-		<option value="8">08-Aug</option>
-		<option value="9">09-Sep</option>
-		<option value="10">10-Oct</option>
-		<option value="11">11-Nov</option>
-		<option value="12">12-Dec</option>
-	</select>
-	<select name="selectyear" class="col-xs-2" id="year">
-		<option value="2015">2015</option>
-		<option value="2016">2016</option>
-		<option value="2017" selected>2017</option>
-		<option value="2018">2018</option>
-		<option value="2019">2019</option>
-		<option value="2020">2020</option>
-		<option value="2021">2021</option>
-		<option value="2022">2022</option>
-		<option value="2023">2023</option>
-		<option value="2024">2024</option>
-		<option value="2025">2025</option>
-	</select>
+	<div id="expiration" >
+		<label>Expiration date:</label>
+		<select name="selectmonth" class="col-xs-4 col-sm-2" id="month">
+				<option value="1">01-Jan</option>
+				<option value="2">02-Feb</option>
+				<option value="3">03-Mar</option>
+				<option value="4">04-Apr</option>
+				<option value="5">05-May</option>
+				<option value="5">06-Jun</option>
+				<option value="7">07-Jul</option>
+				<option value="8">08-Aug</option>
+				<option value="9">09-Sep</option>
+				<option value="10">10-Oct</option>
+				<option value="11">11-Nov</option>
+				<option value="12">12-Dec</option>
+		</select>
+		<select name="selectyear" class="col-xs-4 col-sm-2" id="year">
+				<option value="2015">2015</option>
+				<option value="2016">2016</option>
+				<option value="2017" selected>2017</option>
+				<option value="2018">2018</option>
+				<option value="2019">2019</option>
+				<option value="2020">2020</option>
+				<option value="2021">2021</option>
+				<option value="2022">2022</option>
+				<option value="2023">2023</option>
+				<option value="2024">2024</option>
+				<option value="2025">2025</option>
+		</select>
+		<br>
+		<div id="ccicon" class="col-xs-4">&nbsp;</div>
 	</div>
-	<div id="ccicon" class="col-xs-2">&nbsp;</div>
 	<br>
 	<br>
 </fieldset>	
