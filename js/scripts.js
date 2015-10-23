@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", function init()	{
 	
-	function CL(log) {
-		console.log(log);
-	}
+	function CL(log) {console.log(log);}
+	
+	var cartValue = document.getElementById("amount").value;
+	if(cartValue === "0") {
+		document.getElementById("cart").setAttribute("class", "hidden");
+	} else {document.getElementById("cart").removeAttribute("class");}
 
 // insert message helper function	
 //	function insertError(text, myClass) {  
@@ -159,6 +162,9 @@ document.addEventListener("DOMContentLoaded", function init()	{
 		}
 		
 	doughSelect.addEventListener("click", function() {
+		
+		// Makes cart visible
+		document.getElementById("cart").removeAttribute("class");
 	
 		//Gets values from radio button input
 		var radios = document.getElementsByName("dough");
@@ -382,19 +388,24 @@ document.addEventListener("DOMContentLoaded", function init()	{
 	expiration.addEventListener("change", function() {
 
 
-		var month = [];
-		var year = [];
+		var month;
+		var year;
+	  var checkDate;
 		month = (document.getElementById("month").value);		
 		year = (document.getElementById("year").value);
-		var checkDate = month + year;
+		checkDate = month + year;
+		
 		checkDate = checkDate.split('');
-		month = checkDate[0]
-		
-		CL(checkDate);
-//		if(checkDate < new date()) {
-//			window.alert("hey date!");
-//		}
-		
+		month = checkDate.shift(0);
+		month += checkDate.shift(0);
+		year = checkDate.shift(0);
+		year += checkDate.shift(0);
+		year += checkDate.shift(0);
+		year += checkDate.shift(0);
+		var currentMonth = new Date().getMonth() + 1;
+		var currentYear = new Date().getFullYear();
+		if(month < currentMonth && year <= currentYear ) { window.alert("Your card appears expired");}
+
  },false);											 
 
 		
