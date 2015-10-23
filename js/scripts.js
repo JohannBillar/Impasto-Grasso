@@ -7,15 +7,6 @@ document.addEventListener("DOMContentLoaded", function init()	{
 		document.getElementById("cart").setAttribute("class", "hidden");
 	} else {document.getElementById("cart").removeAttribute("class");}
 
-// insert message helper function	
-//	function insertError(text, myClass) {  
-//    var paragraph = document.createElement("p");
-//    var textmessage = document.createTextNode(text);
-//    paragraph.setAttribute("class", myClass + " bg-danger");
-//		// paragraph.setAttribute("id", id)
-//    paragraph.appendChild(textmessage);
-//    document.getElementById("errormessage").appendChild(paragraph);
-//  }  
 	
 	// Hides/Shows OTHER address field
 	document.getElementById("addressOther").setAttribute("class", "hidden");	
@@ -26,70 +17,7 @@ document.addEventListener("DOMContentLoaded", function init()	{
 			document.getElementById("addressOther").setAttribute("class", "hidden");
 		}
 	}
-	
-//	// REQUIRE, LIMIT AND VALIDATE FORM FIELDS
-//	// enters value for name, street address, apt, city, state, zipcode, phone, email
-//	// selects address type
-//	// reg expression for zip phone email
-//	// reg expression for name contains no numbers
-//	// only 2 characters in state
-//  
-////   username
-//  document.pizzaOrderForm.username.onchange = function() {
-//    var name = document.pizzaOrderForm.username.value;
-//    var pattern = new RegExp(/\d/g).test(name);
-//    var p = document.querySelector(".nameerror");
-//    if (pattern === true && p === null) {
-//      insertError("Hey, \"Names\" don't come with numbers in them.", "namerror");
-//    } else if (pattern === false && p !== null) {
-//       p.parentNode.removeChild(p);
-//    }
-//  }
-//  // state
-//  document.pizzaOrderForm.state.onchange = function() {
-//    var state = document.pizzaOrderForm.state.value;
-//    var pattern = new RegExp(/([Aa][LKSZRAEPlkszraep]|[Cc][AOTaot]|[Dd][ECec]|[Ff][LMlm]|[Gg][AUau]|[Hh][Ii]|[Ii][ADLNadln]|[Kk][SYsy]|[Ll][Aa]|[Mm][ADEHINOPSTadehinopst]|[Nn][CDEHJMVYcdehjmvy]|[Oo][HKRhkr]|[Pp][ARWarw]|[Rr][Ii]|[Ss][CDcd]|[Tt][NXnx]|[Uu][Tt]|[Vv][AITait]|[Ww][AIVYaivy])/).test(state);
-//    var p = document.querySelector(".stateerror");
-//    if (pattern === false && p === null) {
-//      insertError("State: only enter 2-digit - eg. CA, Ca, or ca", "stateerror");
-//      } else if (pattern === true && p !== null) {
-//       p.parentNode.removeChild(p);
-//    }
-//  }
-//  //zip
-//  document.pizzaOrderForm.zip.onchange = function() {
-//    var zipcode = document.pizzaOrderForm.zip.value;
-//    var pattern = new RegExp(/\d{5}(?:[-\s]\d{4})?/).test(zipcode);
-//    var p = document.querySelector(".ziperror");
-//    if (pattern === false && p === null) {
-//    insertError("Enter the zipcode as: 92107, 92107-1234 or 92107 4444", "ziperror");
-//    } else if (pattern === true && p !== null) {
-//        p.parentNode.removeChild(p);
-//    }
-//  }
-//  //phone
-//  document.pizzaOrderForm.phone.onchange = function() {
-//    var phonenum = document.pizzaOrderForm.phone.value;
-//    var pattern = new RegExp(/1?(?:[.\s-]?[2-9]\d{2}[.\s-]?|\s?\([2-9]\d{2}\)\s?)(?:[1-9]\d{2}[.\s-]?\d{4}\s?(?:\s?([xX]|[eE][xX]|[eE][xX]\.|[eE][xX][tT]|[eE][xX][tT]\.)\s?\d{3,4})?|[a-zA-Z]{7})/).test(phonenum);
-//    var p = document.querySelector(".phoneerror");
-//    if (pattern === false && p === null) {
-//    insertError("Enter phone number as: 9875551212, (987) 555-1212, or 987-555-1212", "phonerror");
-//    } else if (pattern === true && p !== null) {
-//        p.parentNode.removeChild(p);
-//    } 
-//  }
-//  //email 
-//  document.pizzaOrderForm.email.onchange = function() {
-//    var emailaddress = document.pizzaOrderForm.email.value;
-//    var pattern = new RegExp(/^[0-9a-zA-Z]+([0-9a-zA-Z]*[-._+])*[0-9a-zA-Z]+@[0-9a-zA-Z]+([-.][0-9a-zA-Z]+)*([0-9a-zA-Z]*[.])[a-zA-Z]{2,6}$/).test(emailaddress);
-//    var p = document.querySelector(".emailerror");
-//    if (pattern === false && p === null) {
-//    insertError("Only enter valid email addresses such as john-smith@example.com, john.smith@example.com or john_smith@x-ample.com.", "emailerror");
-//    } else if (pattern === true && p !== null) {
-//        p.parentNode.removeChild(p);
-//    } 
-//  }
-	
+
 	// Form validation	
 	giantPizzaButton.addEventListener("click", function() {
 		var name = document.pizzaOrderForm.username.value;
@@ -223,8 +151,7 @@ document.addEventListener("DOMContentLoaded", function init()	{
 				document.getElementById("selectSize").appendChild(newOption);
 				}
 			}
-	},false);
-	
+	},false);	
 
 	// BUILDBOX - pizza add to cart feature
 	buildbox.addEventListener("change", function(val) {
@@ -276,6 +203,44 @@ document.addEventListener("DOMContentLoaded", function init()	{
 			document.pizzaOrderForm.billingcity.value = "";
 			document.pizzaOrderForm.billingstate.value = "";
 			document.pizzaOrderForm.billingzip.value = "";
+		}
+	},false);
+	
+	// Billing address validation
+	document.pizzaOrderForm.billingname.addEventListener("change", function() {
+		var name = document.pizzaOrderForm.billingname.value;
+		var namepattern = new RegExp(/\d/g).test(name);
+		if(document.pizzaOrderForm.billingname.value === "" || namepattern === true) {
+			document.pizzaOrderForm.billingname.focus();
+			window.alert("Please fix your name");
+		}
+	},false);			
+		document.pizzaOrderForm.billingstreet.addEventListener("change", function() {
+	 	if(document.pizzaOrderForm.billingstreet.value === "") {
+			document.pizzaOrderForm.billingstreet.focus();
+			window.alert("Please enter your street name");
+		}
+	},false);	
+		document.pizzaOrderForm.billingcity.addEventListener("change", function() {
+	 	if(document.pizzaOrderForm.billingcity.value === "") {
+			document.pizzaOrderForm.billingcity.focus();
+			window.alert("Please enter your city name");
+		}
+	},false);
+	document.pizzaOrderForm.billingstate.addEventListener("change", function() {
+		var state = document.pizzaOrderForm.billingstate.value;
+		var statepattern = new RegExp(/([Aa][LKSZRAEPlkszraep]|[Cc][AOTaot]|[Dd][ECec]|[Ff][LMlm]|[Gg][AUau]|[Hh][Ii]|[Ii][ADLNadln]|[Kk][SYsy]|[Ll][Aa]|[Mm][ADEHINOPSTadehinopst]|[Nn][CDEHJMVYcdehjmvy]|[Oo][HKRhkr]|[Pp][ARWarw]|[Rr][Ii]|[Ss][CDcd]|[Tt][NXnx]|[Uu][Tt]|[Vv][AITait]|[Ww][AIVYaivy])/).test(state);
+		if(document.pizzaOrderForm.billingstate.value === "" || statepattern === false)  {
+			document.pizzaOrderForm.billingstate.focus();
+			window.alert("Pleaae enter your 2-digit statecode");
+		}
+	},false);
+	document.pizzaOrderForm.billingzip.addEventListener("change", function() {
+		var zipcode = document.pizzaOrderForm.billingzip.value;
+		var zippattern = new RegExp(/\d{5}(?:[-\s]\d{4})?/).test(zipcode);
+		if(document.pizzaOrderForm.billingzip.value === "" || zippattern === false) {
+			document.pizzaOrderForm.billingzip.focus();
+			window.alert("Enter a valid zipcode");
 		}
 	},false);
 	
@@ -387,7 +352,6 @@ document.addEventListener("DOMContentLoaded", function init()	{
 	// CC Expiration date NEEDS WORK
 	expiration.addEventListener("change", function() {
 
-
 		var month;
 		var year;
 	  var checkDate;
@@ -404,14 +368,19 @@ document.addEventListener("DOMContentLoaded", function init()	{
 		year += checkDate.shift(0);
 		var currentMonth = new Date().getMonth() + 1;
 		var currentYear = new Date().getFullYear();
-		if(month < currentMonth && year <= currentYear ) { window.alert("Your card appears expired");}
+		var child = document.getElementById("expFixText").firstChild;
+
+		if(month < currentMonth && year <= currentYear) {
+			fixMe("Expiration date has to be further out than today.", "expFixText");
+		} else {
+				if(child !== null) {
+				child.parentNode.removeChild(child);
+				}
+			}
 
  },false);											 
-
-		
+	
 	// Sets copyright in footer	
 	document.querySelector("footer").innerHTML = "&copy; Impasto Grasso " + new Date().getFullYear();
 	
 },false);
-
-
