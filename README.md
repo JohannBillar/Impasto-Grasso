@@ -1,6 +1,18 @@
-FEWD 2 - Assignment 6
+# Pizza-Order-Form #
 
-Build pizza order form
+## Build a Custom Pizza and Create Your Order ##
 
-Use client side validation only-
-and only using core JavaScript.
+Front-end form functionality is is achieved by utilizing
+HTML web forms, web form controls, and JavaScript.
+
+* Client-side validation for: *
+
+* Delivery address 
+* Billing address
+* Building the pizza
+* Creating the order
+* Credit card number validation
+
+# To download the Form: #
+
+Download the Zip or Clone the repo: git clone https://github.com/JohannBillar/Pizza-Order-Form.git
