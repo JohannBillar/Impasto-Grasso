@@ -1,11 +1,11 @@
 # Pizza-Order-Form #
+### Build a Custom Pizza for Delivery ###
 
-## Build a Custom Pizza and Create Your Order ##
 
 Front-end form functionality is is achieved by utilizing
-HTML web forms, web form controls, and JavaScript.
+HTML web forms, web form controls, and vanilla JavaScript.
 
-* Client-side validation for: *
+_Client-side validation for:_
 
 * Delivery address 
 * Billing address
@@ -13,6 +13,6 @@ HTML web forms, web form controls, and JavaScript.
 * Creating the order
 * Credit card number validation
 
-# To download the Form: #
 
+# To use the form: #
 Download the Zip or Clone the repo: git clone https://github.com/JohannBillar/Pizza-Order-Form.git
