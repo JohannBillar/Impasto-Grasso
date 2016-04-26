@@ -1,9 +1,6 @@
 document.addEventListener("DOMContentLoaded", function init() {
-
-  function CL(log) {
-    console.log(log);
-  }
-
+  'use strict';
+  
   var cartValue = document.getElementById("amount").value;
   if (cartValue === "0") {
     document.getElementById("cart").setAttribute("class", "hidden");
