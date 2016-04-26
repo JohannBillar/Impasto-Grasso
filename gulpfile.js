@@ -5,16 +5,17 @@ var gulp       = require('gulp'),
     connect    = require('gulp-connect'),
     concat     = require('gulp-concat');
 
-gulp.task('log', function() {
-  gutil.log('Pizza order forms are awesome!');
-});
-
 var jsSources = [
   'components/scripts/ie10-viewport-bug-workaround.js',
   'components/scripts/form-validation.js'
 ];
 
 var sassSources = ['components/sass-stylesheets/main.scss'];
+var htmlSources = ['builds/development/*html'];
+
+gulp.task('log', function() {
+  gutil.log('Pizza order forms are awesome!');
+});
 
 gulp.task('js', function() {
   gulp.src(jsSources)
@@ -40,13 +41,19 @@ gulp.task('compass', function() {
 gulp.task('watch', function() {
   gulp.watch(jsSources, ['js']);
   gulp.watch('components/sass-stylesheets/**/*', ['compass']);
+  gulp.watch(htmlSources, ['html']);
 });
-
-gulp.task('default', ['js', 'compass', 'connect', 'watch']);
 
 gulp.task('connect', function(){
   connect.server({
     root: 'builds/development',
     livereload: true
   })
-} );
+});
+
+gulp.task('html', function() {
+  gulp.src(htmlSources)
+  .pipe(connect.reload());
+});
+
+gulp.task('default', ['html', 'js', 'compass', 'connect', 'watch']);
