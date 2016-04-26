@@ -1,0 +1,30 @@
+{
+  "name": "pizza-order-form",
+  "description": "Pizza order form using vanilla JavaScript for front end form validation.",
+  "authors": [
+    "Johann Billar"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "form",
+    "validation",
+    "client-side",
+    "order-form",
+    "JavaScript",
+    "pizza",
+    "is",
+    "awesome"
+  ],
+  "homepage": "https://github.com/JohannBillar/Pizza-Order-Form",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6"
+  }
+}
