@@ -1,0 +1,26 @@
+{
+  "name": "pizza-order-form",
+  "version": "1.0.0",
+  "description": "Pizza order form using vanilla JavaScript for front end form validation.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohannBillar/Pizza-Order-Form.git"
+  },
+  "keywords": [
+    "form validation",
+    "client-side",
+    "order-form",
+    "JavaScript"
+  ],
+  "author": "Johann Billar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JohannBillar/Pizza-Order-Form/issues"
+  },
+  "homepage": "https://github.com/JohannBillar/Pizza-Order-Form#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-util": "^3.0.7"
+  }
+}
