@@ -8,8 +8,9 @@
 
 // 2. Vendors
 @import
-  'vendor/normalize';
-  'vendor/bootstrap-theme'
+  'compass',
+  'vendor/normalize',
+  'vendor/bootstrap-theme';
 
 // 3. Base stuff
 @import

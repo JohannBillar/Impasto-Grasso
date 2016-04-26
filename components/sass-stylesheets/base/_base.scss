@@ -5,9 +5,11 @@
 /**
  * Set up a decent box model on the root element
  */
+
 html {
   box-sizing: border-box;
 }
+
 
 /**
  * Make all elements from the DOM inherit from the parent box-sizing
@@ -15,17 +17,21 @@ html {
  * making all elements inheriting from the root box-sizing value
  * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
  */
-*, *::before, *::after {
+
+*,
+*::before,
+*::after {
   box-sizing: inherit;
-} 
+}
+
 
 /**
  * Basic styles for links
  */
+
 a {
   color: $brand-color;
   text-decoration: none;
-
   @include on-event {
     color: $text-color;
     text-decoration: underline;
@@ -34,104 +40,161 @@ a {
 
 // Moved here from css.css.
 // Needs to be converted to sass.
-
 body {
-	width: 100%;
-	background: url('../img/pizza.jpg') no-repeat center center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+  width: 100%;
+  background: url('../images/pizza.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   font-size: 2em;
-	font-family: 'caviar_dreamsregular', sans-serif;
-	color: #fff;
+  font-family: 'caviar_dreamsregular', sans-serif;
+  color: #fff;
 }
-h1, h2, h3, h4, h5, h6 {
-font-family: 'seasideresortnfregular', serif;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'seasideresortnfregular', serif;
 }
+
 main {
-	background-color: rgba(0,0,0, .6);
-	border-radius: 3px;
-	padding: 15px;
+  background-color: rgba(0, 0, 0, .6);
+  border-radius: 3px;
+  padding: 15px;
 }
+
 .footer {
-	font-size: .5em;
-	font-style: italic;
-	text-align: center;
+  font-size: .5em;
+  font-style: italic;
+  text-align: center;
   padding-top: 19px;
-  color: #777 !impotant;
+  color: #777 !important;
   border-top: 1px solid #e5e5e5;
 }
+
 #cart {
-	position: fixed;
-	right: 2%;
-	top: 10%;
-	width: 200px;
-	height: 100px;
-	background-color: #000;
-	background-color: rgba(0,0,0, .9);
-	color: #fff;
-	text-align: center;
-	border: 5px solid #000;
-	border-radius: 4px;
+  position: fixed;
+  right: 2%;
+  top: 10%;
+  width: 200px;
+  height: 100px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, .9);
+  color: #fff;
+  text-align: center;
+  border: 5px solid #000;
+  border-radius: 4px;
 }
-#cart input[type="text"] 	{	width: 80%;	}
-#month  									{ margin-right: 5px;}
+
+#cart input[type="text"] {
+  width: 80%;
+}
+
+#month {
+  margin-right: 5px;
+}
+
 
 /* form styles
 -----------------------------------------------*/
+
 input[type="email"],
 input[type="text"],
 input[type="tel"],
-textarea, select 				{width:400px;height:38px;padding:6px 10px;background-color:#fff;color:#333;border:1px solid #D1D1D1;border-radius:4px;box-shadow:none;box-sizing:border-box;}
+textarea,
+select {
+  width: 400px;
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
 
-textarea 								{min-height:65px;padding-top:6px;padding-bottom:6px;}
-label										{display:block;float:left;width:300px;height:30px;font-weight:600;}
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+label {
+  display: block;
+  float: left;
+  width: 300px;
+  height: 30px;
+  font-weight: 600;
+}
 
 input[type="checkbox"],
-input[type="radio"] 		{display:inline;}
+input[type="radio"] {
+  display: inline;
+}
 
-label > .label-body 		{display:inline-block;margin-left:.5rem;font-weight:normal;}
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal;
+}
 
-input[type="submit"]		{
-	display: inline-block;
-	height: 38px;
-	padding: 0 30px;
-	color: #555;
-	text-align: center;
-	font-size: 11px;
-	font-weight: 600;
-	line-height: 38px;
-	letter-spacing: .1rem;
-	text-transform: uppercase;
-	text-decoration: none;
-	white-space: nowrap;
-	background-color: #fff;
-	border-radius: 4px;
-	border: 1px solid #bbb;
-	cursor: pointer;
-	box-sizing: border-box;
- }
+input[type="submit"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}
 
 input[type="submit"]:hover,
-input[type="submit"]:focus		{color:#333;border-color:#888;outline:0;}
+input[type="submit"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0;
+}
 
-hr 														{margin-top:1em;margin-bottom:1em;border-width:0;border-top: 1px solid #E1E1E1;}
+hr {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1;
+}
 
 input[type="text"]:required,
 input[type="tel"]:required,
-input[type="email"]:required 	{border-color:red;}
+input[type="email"]:required {
+  border-color: red;
+}
 
 input[type="text"]:valid,
 input[type="tel"]:valid,
-input[type="email"]:valid   	{border-color:green;}
+input[type="email"]:valid {
+  border-color: green;
+}
 
 .required {
-	border-color: 4px solid red;
+  border-color: 4px solid red;
 }
 
 legend h5 {
-/*  font-size: .75em;*/
+  /*  font-size: .75em;*/
   color: #fff;
   text-align: left;
 }
@@ -140,16 +203,21 @@ legend h5 {
   color: #333;
 }
 
+
 /* styles for narrow jumbotron
 -----------------------------------------------*/
 
+
 /* Space out content a bit */
+
 body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
+
 .header,
 .marketing,
 .footer {
@@ -157,47 +225,63 @@ body {
   padding-left: 15px;
 }
 
+
 /* Custom page header */
+
 .header {
   padding-bottom: 20px;
   border-bottom: 1px solid #e5e5e5;
 }
+
+
 /* Make the masthead heading the same height as the navigation */
+
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
 }
 
+
 /* Customize container */
+
 @media (min-width: 768px) {
   .container {
     max-width: 730px;
   }
 }
+
 .container-narrow > hr {
   margin: 30px 0;
 }
 
+
 /* Main marketing message and sign up button */
+
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
+
 .jumbotron .btn {
   padding: 14px 24px;
   font-size: 21px;
 }
 
+
 /* Supporting marketing content */
+
 .marketing {
   margin: 40px 0;
 }
+
 .marketing p + h4 {
   margin-top: 28px;
 }
 
+
 /* Responsive: Portrait tablets and up */
+
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
   .header,
@@ -216,42 +300,52 @@ body {
   }
 }
 
+
 /* modifications to jumbotron theme */
+
 .navbar {
-	border: 1px solid #000;
-	padding: 10px;	
+  border: 1px solid #000;
+  padding: 10px;
 }
+
 .nav-pills>li.active>a,
-.nav-pills>li.active>a:focus, 
+.nav-pills>li.active>a:focus,
 .nav-pills>li.active>a:hover {
-    background-color: #771a0b;
+  background-color: #771a0b;
 }
-.nav>li>a:focus, .nav>li>a:hover {
-    background-color: #771a0b;
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+  background-color: #771a0b;
 }
+
 .navbar a {
-    color: #fff;
+  color: #fff;
 }
+
 .header h3 {
-	color: #fff;
+  color: #fff;
 }
+
 .jumbotron,
 .navbar-inverse {
-	background-color: #000;
-	background-color: rgba(0,0,0,.8);
-	border: 1px solid #000;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, .8);
+  border: 1px solid #000;
 }
+
 .btn-success,
 .btn-success:hover,
 .btn-success:visited,
 .btn-success:active,
 .btn-success:disabled {
-    color: #fff;
-    background-color: #771a0b;
-    border-color: #771a0b;
+  color: #fff;
+  background-color: #771a0b;
+  border-color: #771a0b;
 }
+
 .bg-danger {
   background-color: orangered;
   padding: 5px;
-  border-radius: 4px;   
+  border-radius: 4px;
 }
