@@ -4,7 +4,8 @@ var gulp       = require('gulp'),
     compass    = require('gulp-compass'),
     connect    = require('gulp-connect'),
     gulpif     = require('gulp-if'),
-    uglify     = require('gulp-uglify'), 
+    uglify     = require('gulp-uglify'),
+    htmlmin    = require('gulp-htmlmin'),
     concat     = require('gulp-concat');
 
 var env,
@@ -30,7 +31,7 @@ jsSources = [
 ];
 
 sassSources = ['components/sass-stylesheets/main.scss'];
-htmlSources = [outputDir + '*html'];
+htmlSources = ['builds/development/*html'];
 
 gulp.task('js', function() {
   gulp.src(jsSources)
@@ -54,6 +55,13 @@ gulp.task('compass', function() {
     .pipe(connect.reload());
 });
 
+gulp.task('html', function() {
+  gulp.src(htmlSources)
+    .pipe(gulpif(env === 'production', htmlmin({collapseWhitespace: true})))
+    .pipe(gulpif(env === 'production', gulp.dest(outputDir)))
+    .pipe(connect.reload());
+});
+
 gulp.task('watch', function() {
   gulp.watch(jsSources, ['js']);
   gulp.watch('components/sass-stylesheets/**/*.scss', ['compass']);
@@ -65,11 +73,6 @@ gulp.task('connect', function(){
     root: outputDir,
     livereload: true
   });
-});
-
-gulp.task('html', function() {
-  gulp.src(htmlSources)
-    .pipe(connect.reload());
 });
 
 gulp.task('default', ['html', 'js', 'compass', 'connect', 'watch']);
