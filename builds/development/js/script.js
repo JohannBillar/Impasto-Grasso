@@ -22,6 +22,8 @@
   }
 
 })();
+
+// Pizza form validation
 document.addEventListener("DOMContentLoaded", function init() {
   'use strict';
   

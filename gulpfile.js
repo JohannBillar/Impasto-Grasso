@@ -3,25 +3,41 @@ var gulp       = require('gulp'),
     browserify = require('gulp-browserify'),
     compass    = require('gulp-compass'),
     connect    = require('gulp-connect'),
+    gulpif     = require('gulp-if'),
+    uglify     = require('gulp-uglify'), 
     concat     = require('gulp-concat');
 
-var jsSources = [
+var env,
+    jsSources,
+    sassSources,
+    htmlSources,
+    outputDir,
+    sassStyle;
+
+env = process.env.NODE_ENV || 'development';
+
+if (env === 'development') {
+  outputDir = 'builds/development/';
+  sassStyle = 'expanded';
+} else {
+  outputDir = 'builds/production/';
+  sassStyle = 'compressed';
+}
+
+jsSources = [
   'components/scripts/ie10-viewport-bug-workaround.js',
   'components/scripts/form-validation.js'
 ];
 
-var sassSources = ['components/sass-stylesheets/main.scss'];
-var htmlSources = ['builds/development/*html'];
-
-gulp.task('log', function() {
-  gutil.log('Pizza order forms are awesome!');
-});
+sassSources = ['components/sass-stylesheets/main.scss'];
+htmlSources = [outputDir + '*html'];
 
 gulp.task('js', function() {
   gulp.src(jsSources)
     .pipe(concat('script.js'))
     .pipe(browserify())
-    .pipe(gulp.dest('builds/development/js'))
+    .pipe(gulpif(env === 'production', uglify()))
+    .pipe(gulp.dest(outputDir + 'js'))
     .pipe(connect.reload());
 });
 
@@ -29,31 +45,31 @@ gulp.task('compass', function() {
   gulp.src(sassSources)
     .pipe(compass({
       sass: 'components/sass-stylesheets',
-      image: 'builds/development/images',
-      font: 'builds/development/fonts',
-      style: 'expanded'
-    }))
-    .on('error', gutil.log)
-    .pipe(gulp.dest('builds/development/css'))
+      style: sassStyle,
+      image: outputDir + 'images',
+      font: outputDir + 'fonts'
+    })
+    .on('error', gutil.log))
+    .pipe(gulp.dest(outputDir + 'css'))
     .pipe(connect.reload());
 });
 
 gulp.task('watch', function() {
   gulp.watch(jsSources, ['js']);
-  gulp.watch('components/sass-stylesheets/**/*', ['compass']);
+  gulp.watch('components/sass-stylesheets/**/*.scss', ['compass']);
   gulp.watch(htmlSources, ['html']);
 });
 
 gulp.task('connect', function(){
   connect.server({
-    root: 'builds/development',
+    root: outputDir,
     livereload: true
-  })
+  });
 });
 
 gulp.task('html', function() {
   gulp.src(htmlSources)
-  .pipe(connect.reload());
+    .pipe(connect.reload());
 });
 
 gulp.task('default', ['html', 'js', 'compass', 'connect', 'watch']);
